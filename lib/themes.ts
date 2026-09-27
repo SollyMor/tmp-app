@@ -21,6 +21,12 @@ export const PRIORITY_COLORS: Record<1 | 2 | 3 | 4, string> = {
   4: "#F8F6E7",
 };
 
+export const TASK_STATUS_COLORS = {
+  TODO: "#4A5568",
+  IN_PROGRESS: "#3D5A45",
+  DONE: "#2F6B5E",
+} as const;
+
 export const WEEKDAY_LABELS = [
   "ПОНЕДЕЛЬНИК",
   "ВТОРНИК",

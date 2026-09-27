@@ -218,7 +218,7 @@ export default function MonthPanel({
         <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 p-4">
           <form
             onSubmit={handleCreate}
-            className="flex w-full max-w-sm flex-col gap-3 border border-[#F8F6E7] bg-[#191919] p-5 rounded-[3px] pt-6 shadow-[6px_6px_0_0_#49644E]"
+            className="mt-1 flex w-full max-w-sm flex-col gap-3 rounded-[3px] border border-[#F8F6E7] bg-[#191919] p-5 pt-6 shadow-[6px_6px_0_0_#49644E]"
           >
             <h2 className="font-amatic text-3xl font-bold">Новое событие</h2>
             <label className="font-zen flex flex-col gap-1 text-sm">

@@ -84,7 +84,10 @@ export default function ClockPanel({ nick }: ClockPanelProps) {
           height={28}
           className="shrink-0"
         />
-        <span className="font-zen text-base leading-none whitespace-nowrap text-[#F8F6E7]">
+        <span
+          className="font-zen max-w-[7.5rem] truncate text-base leading-none text-[#F8F6E7]"
+          title={nick}
+        >
           {nick}
         </span>
       </div>
