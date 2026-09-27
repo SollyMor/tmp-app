@@ -131,7 +131,7 @@ export default function MonthPanel({
   }
 
   return (
-    <div className="relative flex h-full w-full flex-col overflow-hidden px-8 pt-6 pb-6 text-[#F8F6E7]">
+    <div className="relative flex h-full w-full flex-col overflow-hidden px-8 pt-10 pb-6 text-[#F8F6E7]">
       <div className="mb-6 flex w-full max-w-4xl items-center gap-4">
         <button
           type="button"
@@ -156,7 +156,7 @@ export default function MonthPanel({
         <button
           type="button"
           onClick={() => setFormOpen(true)}
-          className="font-zen ml-auto border border-[#F8F6E7] bg-[#F8F6E7] px-4 py-2 text-sm text-[#191919] shadow-[3px_3px_0_0_#49644E] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_0_#49644E]"
+          className="font-zen ml-auto rounded-[3px] border border-[#F8F6E7] bg-[#F8F6E7] px-4 py-2 text-sm text-[#191919] shadow-[3px_3px_0_0_#49644E] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_0_#49644E]"
         >
           Создать событие
         </button>
