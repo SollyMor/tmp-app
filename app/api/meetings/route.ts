@@ -35,16 +35,16 @@ export async function POST(request: Request) {
     const date = String(body.date ?? "").trim();
     const timeRaw = String(body.time ?? "").trim();
     const title = String(body.title ?? "").trim();
-    const room = String(body.room ?? "").trim();
-    const color = String(body.color ?? "").trim();
+    const room = String(body.room ?? "").trim() || "событие";
+    const color = String(body.color ?? "").trim() || "#49644E";
 
     if (!parseDateKey(date)) {
       return NextResponse.json({ error: "Некорректная дата" }, { status: 400 });
     }
 
-    if (!timeRaw || !title || !room || !color) {
+    if (!timeRaw || !title) {
       return NextResponse.json(
-        { error: "Заполните время, название, место и цвет" },
+        { error: "Заполните название и время" },
         { status: 400 },
       );
     }
