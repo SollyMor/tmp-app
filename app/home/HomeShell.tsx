@@ -45,7 +45,7 @@ export default function HomeShell({ nick }: HomeShellProps) {
 
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-[#191919]">
-      <nav className="absolute top-0 left-[65%] z-30 flex -translate-x-1/2 gap-4">
+      <nav className="absolute top-0 left-[50%] z-30 flex -translate-x-1/2 gap-4">
         {NAV.map((item) => {
           const active = view === item.id;
 
