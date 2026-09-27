@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const zenKurenaido = localFont({
+  src: "./fonts/ZenKurenaido-Regular.ttf",
+  variable: "--font-zen-kurenaido",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const amaticSC = localFont({
+  src: "./fonts/AmaticSC-Regular.ttf",
+  variable: "--font-amatic-sc",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,9 +23,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${zenKurenaido.variable} ${amaticSC.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className={`${zenKurenaido.className} min-h-full flex flex-col`}>
+        {children}
+      </body>
     </html>
   );
 }

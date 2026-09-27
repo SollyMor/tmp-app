@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  nick          String
+  email         String         @unique
+  passwordHash  String
+  createdAt     DateTime       @default(now())
+  scheduleItems ScheduleItem[]
+  dayMeetings   DayMeeting[]
+  tasks         Task[]
+}
+
+model ScheduleItem {
+  id        String   @id @default(cuid())
+  time      String
+  sortKey   Int
+  title     String
+  room      String
+  color     String
+  weekday   Int      @default(0)
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, weekday, sortKey])
+}
+
+/** Разовая встреча только на конкретную дату */
+model DayMeeting {
+  id        String   @id @default(cuid())
+  date      String
+  time      String
+  sortKey   Int
+  title     String
+  room      String
+  color     String
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, date, sortKey])
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @default("")
+  time        String   @default("")
+  startDate   String
+  endDate     String
+  priority    Int
+  themeId     String
+  completed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, startDate])
+}
