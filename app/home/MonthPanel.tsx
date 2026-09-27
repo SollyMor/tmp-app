@@ -215,7 +215,7 @@ export default function MonthPanel({
       </div>
 
       {formOpen ? (
-        <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 p-4">
+        <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 p-4 mt-2">
           <form
             onSubmit={handleCreate}
             className="mt-1 flex w-full max-w-sm flex-col gap-3 rounded-[3px] border border-[#F8F6E7] bg-[#191919] p-5 pt-6 shadow-[6px_6px_0_0_#49644E]"

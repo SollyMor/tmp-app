@@ -99,7 +99,7 @@ export default function HomeShell({ nick, userId }: HomeShellProps) {
         })}
       </nav>
 
-      <div className="absolute inset-y-0 left-0 w-[82%]">
+      <div className="absolute inset-y-0 left-0 w-[82%] overflow-hidden">
         {view === "day" ? (
           <div className="flex h-full w-full flex-row">
             <div className="flex h-full w-[30.5%] flex-col items-center border-r-3 border-[#F8F6E7]">
@@ -128,8 +128,8 @@ export default function HomeShell({ nick, userId }: HomeShellProps) {
         {view === "tasks" ? <AllTasksPanel /> : null}
 
         {view === "plans" ? (
-          <div className="flex h-full w-full flex-row pt-10">
-            <div className="flex h-full w-[30.5%] shrink-0 flex-col border-r-3 border-[#F8F6E7]">
+          <div className="flex h-full w-full min-w-0 max-w-full flex-row overflow-hidden pt-10">
+            <div className="flex h-full w-[30.5%] shrink-0 flex-col overflow-hidden border-r-3 border-[#F8F6E7]">
               <WorkspacePanel
                 workspaces={state.workspaces}
                 activeWorkspace={state.activeWorkspace}
@@ -145,8 +145,8 @@ export default function HomeShell({ nick, userId }: HomeShellProps) {
                 onChanged={() => void reload()}
               />
             </div>
-            <div className="relative flex h-full min-w-0 flex-1 flex-col px-5 pb-4">
-              <div className="mb-3 flex shrink-0 items-center gap-3">
+            <div className="relative flex h-full min-w-0 flex-1 flex-col overflow-hidden px-5 pr-6 pb-4">
+              <div className="mb-3 flex w-full shrink-0 items-center gap-3">
                 <h1 className="font-amatic text-4xl font-bold tracking-wide text-[#F8F6E7] uppercase">
                   Задачи
                 </h1>
@@ -154,7 +154,7 @@ export default function HomeShell({ nick, userId }: HomeShellProps) {
                   type="button"
                   disabled={!canCreate || state.projects.length === 0}
                   onClick={() => setTaskFormOpen(true)}
-                  className={`${smallButtonClassName} ml-auto h-9 px-3 text-sm disabled:opacity-40`}
+                  className={`${smallButtonClassName} ml-auto h-9 shrink-0 px-3 text-sm disabled:opacity-40`}
                 >
                   + Задача
                 </button>
@@ -174,19 +174,21 @@ export default function HomeShell({ nick, userId }: HomeShellProps) {
                   </button>
                 </div>
               ) : (
-                <TaskListPanel
-                  tasks={visibleTasks}
-                  projects={state.projects}
-                  onOpenTask={setOpenTaskId}
-                />
+                <div className="min-h-0 min-w-0 flex-1 overflow-hidden">
+                  <TaskListPanel
+                    tasks={visibleTasks}
+                    projects={state.projects}
+                    onOpenTask={setOpenTaskId}
+                  />
+                </div>
               )}
             </div>
           </div>
         ) : null}
       </div>
 
-      <div className="absolute inset-y-0 right-0 flex w-[18%] flex-col items-end p-1 pt-0">
-        <div className="flex h-full w-min flex-col">
+      <div className="absolute inset-y-0 right-0 z-20 flex w-[18%] max-w-[18%] flex-col items-stretch overflow-hidden p-1 pt-0">
+        <div className="flex h-full w-full min-w-0 flex-col items-end">
           <ClockPanel nick={nick} />
           <CalendarPanel
             selectedDateKey={selectedDateKey}

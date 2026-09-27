@@ -68,15 +68,15 @@ export default function ClockPanel({ nick }: ClockPanelProps) {
   const dateLabel = formatDate(now);
 
   return (
-    <div className="flex w-max flex-col gap-3 rounded-[6px] px-3 py-3 text-[#1E1E1E]">
-      <div className="flex items-center gap-4">
+    <div className="flex w-full max-w-full flex-col gap-3 rounded-[6px] px-2 py-3 text-[#1E1E1E]">
+      <div className="flex min-w-0 items-center gap-2">
         <button type="button" aria-label="Настройки" className="shrink-0">
           <Image src="/Settings(1).svg" alt="" width={28} height={28} />
         </button>
         <button type="button" aria-label="Тема" className="shrink-0 ">
           <Image src="/Sun(1).svg" alt="" width={28} height={28} />
         </button>
-        <span className="mx-2 h-6 w-px shrink-0 bg-[#1E1E1E]/60" />
+        <span className="mx-1 h-6 w-px shrink-0 bg-[#1E1E1E]/60" />
         <Image
           src="/account_circle(1).svg"
           alt=""
@@ -85,14 +85,14 @@ export default function ClockPanel({ nick }: ClockPanelProps) {
           className="shrink-0"
         />
         <span
-          className="font-zen max-w-[7.5rem] truncate text-base leading-none text-[#F8F6E7]"
+          className="font-zen min-w-0 max-w-[7.5rem] truncate text-base leading-none text-[#F8F6E7]"
           title={nick}
         >
           {nick}
         </span>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex w-full min-w-0 items-center justify-end gap-1.5">
         <ClockDigit value={hours[0]} />
         <ClockDigit value={hours[1]} />
         <div className="mx-0.5 flex flex-col gap-2.5">

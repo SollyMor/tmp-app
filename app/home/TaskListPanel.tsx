@@ -11,7 +11,7 @@ import { TASK_STATUS_COLORS } from "@/lib/themes";
 import { PriorityBars } from "./PriorityBars";
 
 const rowGridClass =
-  "grid grid-cols-[1.35rem_minmax(0,1fr)_7rem_6rem_4.5rem_5rem] items-center gap-x-3";
+  "grid w-full min-w-0 grid-cols-[1.35rem_minmax(0,1fr)_minmax(4rem,6rem)_minmax(4rem,5.5rem)_3.5rem_minmax(4.5rem,5.5rem)] items-center gap-x-2";
 
 type TaskListPanelProps = {
   tasks: TaskDto[];
@@ -41,10 +41,10 @@ export default function TaskListPanel({
   const todayKey = toDateKey();
 
   return (
-    <section className="flex min-h-0 flex-col overflow-hidden">
+    <section className="flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden">
       <div className={`${rowGridClass} shrink-0 border-b border-[#F8F6E7] pb-2`}>
         <span />
-        <h2 className="font-zen text-[20px] text-[#F8F6E7]">Задачи</h2>
+        <h2 className="font-zen truncate text-[20px] text-[#F8F6E7]">Задачи</h2>
         <span className="font-zen text-center text-[13px] text-[#F8F6E7]/50">
           проект
         </span>
