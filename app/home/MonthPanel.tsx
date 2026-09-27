@@ -218,12 +218,9 @@ export default function MonthPanel({
         <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/50 p-4">
           <form
             onSubmit={handleCreate}
-            className="flex w-full max-w-sm flex-col gap-3 border border-[#F8F6E7] bg-[#191919] p-5 shadow-[6px_6px_0_0_#49644E]"
+            className="flex w-full max-w-sm flex-col gap-3 border border-[#F8F6E7] bg-[#191919] p-5 rounded-[3px] pt-6 shadow-[6px_6px_0_0_#49644E]"
           >
             <h2 className="font-amatic text-3xl font-bold">Новое событие</h2>
-            <p className="font-zen text-xs opacity-60">
-              Например день рождения: название и время
-            </p>
             <label className="font-zen flex flex-col gap-1 text-sm">
               Дата
               <input
@@ -240,7 +237,7 @@ export default function MonthPanel({
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="День рождения Маши"
+                placeholder="День рождение"
                 className="border border-[#F8F6E7] bg-[#191919] px-3 py-2 text-[#F8F6E7] outline-none focus:border-[#49644E]"
                 required
               />
