@@ -1,4 +1,4 @@
-# KZR / Task Flow
+# KZR 
 
 Next.js-приложение с авторизацией, расписанием и задачами (Prisma + PostgreSQL).
 
